@@ -1,4 +1,4 @@
-package com.mukundgoel.memorynotes.presentation
+package com.mukundgoel.memorynotes.presentation.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,12 +10,17 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mukundgoel.memorynotes.R
-import com.mukundgoel.memorynotes.framework.ListViewModel
+import com.mukundgoel.memorynotes.framework.viewmodel.ListViewModel
+import com.mukundgoel.memorynotes.presentation.fragment.ListFragmentDirections
+import com.mukundgoel.memorynotes.presentation.adapter.NotesListAdapter
 import kotlinx.android.synthetic.main.fragment_list.*
 
 class ListFragment : Fragment() {
 
-    private val noteListAdapter = NotesListAdapter(arrayListOf())
+    private val noteListAdapter =
+        NotesListAdapter(
+            arrayListOf()
+        )
     private lateinit var viewModel: ListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +53,8 @@ class ListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        loadingView.visibility = View.VISIBLE
+        notesListView.visibility = View.GONE
         viewModel.getAllNotes()
     }
 
@@ -60,7 +67,10 @@ class ListFragment : Fragment() {
     }
 
     private fun goToNoteDetails(id: Long = 0L) {
-        val action = ListFragmentDirections.actionGoToNote(id)
+        val action =
+            ListFragmentDirections.actionGoToNote(
+                id
+            )
         Navigation.findNavController(notesListView).navigate(action)
     }
 }

@@ -1,4 +1,4 @@
-package com.mukundgoel.memorynotes.presentation
+package com.mukundgoel.memorynotes.presentation.fragment
 
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.mukundgoel.core.data.Note
 import com.mukundgoel.memorynotes.R
-import com.mukundgoel.memorynotes.framework.NoteViewModel
+import com.mukundgoel.memorynotes.framework.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_note.*
 
 class NoteFragment : Fragment() {
@@ -45,7 +45,7 @@ class NoteFragment : Fragment() {
                 currentNote.updateTime = time;
 
                 // check if id = 0, this means this is a new note that we just created
-                if (currentNote.id === 0L) {
+                if (currentNote.id == 0L) {
                     currentNote.creationTime = time
                 }
 
