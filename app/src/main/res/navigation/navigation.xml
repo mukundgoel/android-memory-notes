@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.mukundgoel.memorynotes.presentation.ListFragment"
+        android:name="com.mukundgoel.memorynotes.presentation.fragment.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
-        android:name="com.mukundgoel.memorynotes.presentation.NoteFragment"
+        android:name="com.mukundgoel.memorynotes.presentation.fragment.NoteFragment"
         android:label="fragment_note"
         tools:layout="@layout/fragment_note" >
         <argument
