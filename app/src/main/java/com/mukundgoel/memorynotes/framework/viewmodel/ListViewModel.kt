@@ -1,4 +1,4 @@
-package com.mukundgoel.memorynotes.framework
+package com.mukundgoel.memorynotes.framework.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -9,6 +9,8 @@ import com.mukundgoel.core.usecase.AddNote
 import com.mukundgoel.core.usecase.GetAllNotes
 import com.mukundgoel.core.usecase.GetNote
 import com.mukundgoel.core.usecase.RemoveNote
+import com.mukundgoel.memorynotes.framework.RoomNoteDataSource
+import com.mukundgoel.memorynotes.framework.usecase.UseCases
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,7 +18,11 @@ import kotlinx.coroutines.launch
 class ListViewModel(application: Application): AndroidViewModel(application) {
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
-    val repository = NoteRepository(RoomNoteDataSource(application));
+    val repository = NoteRepository(
+        RoomNoteDataSource(
+            application
+        )
+    );
 
     val useCases = UseCases(
         AddNote(repository),

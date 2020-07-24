@@ -1,4 +1,4 @@
-package com.mukundgoel.memorynotes.framework
+package com.mukundgoel.memorynotes.framework.usecase
 
 import com.mukundgoel.core.usecase.AddNote
 import com.mukundgoel.core.usecase.GetAllNotes
