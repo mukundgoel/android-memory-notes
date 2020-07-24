@@ -1,4 +1,4 @@
-package com.mukundgoel.memorynotes.presentation
+package com.mukundgoel.memorynotes.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
